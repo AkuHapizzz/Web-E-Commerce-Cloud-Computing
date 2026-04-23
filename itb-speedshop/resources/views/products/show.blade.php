@@ -94,9 +94,12 @@
                     </div>
                 </div>
 
-                <button class="w-full bg-red-600 text-white py-4 rounded-full font-bold uppercase text-[12px] tracking-widest hover:bg-red-700 transition shadow-lg shadow-red-200">
-                    Tambah Ke Keranjang
-                </button>
+                <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="w-full bg-red-600 text-white py-4 rounded-full font-bold uppercase text-[12px] tracking-widest hover:bg-black transition shadow-lg shadow-red-200">
+                        Tambah Ke Keranjang
+                    </button>
+                </form>
             </div>
         </div>
 

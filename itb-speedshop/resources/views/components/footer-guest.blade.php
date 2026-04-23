@@ -16,9 +16,9 @@
                 <div>
                     <h4 class="text-xl font-medium mb-6">Our Social Links:</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-12 h-12 bg-[#3b5998] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg">f</a>
-                        <a href="#" class="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg text-xs font-bold italic underline">X</a>
-                        <a href="#" class="w-12 h-12 bg-[#bd081c] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg italic">P</a>
+                        <a href="#" class="w-12 h-12 bg-[#3bk rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg text-xs font-bold italic underline">X</a>
+                        <a href="#" class="w-12 h-12 bg-[#bd5998] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg">f</a>
+                        <a href="#" class="w-12 h-12 bg-blac081c] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg italic">P</a>
                         <a href="#" class="w-12 h-12 bg-[#25d366] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg">WA</a>
                         <a href="#" class="w-12 h-12 bg-[#0088cc] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg">TG</a>
                     </div>

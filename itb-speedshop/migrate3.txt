@@ -1,0 +1,6 @@
+
+   INFO  Running migrations.  
+
+  2026_04_23_073430_add_role_to_users_table  258.63ms DONE
+  2026_04_23_073712_create_orders_table  1s DONE
+

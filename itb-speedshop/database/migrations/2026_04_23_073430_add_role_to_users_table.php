@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasColumn('products', 'description')) {
-            Schema::table('products', function (Blueprint $table) {
-                $table->text('description')->nullable()->after('name');
-            });
-        }
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('usertype')->default('user');
+        });
     }
 
     /**
@@ -23,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('usertype');
         });
     }
 };
