@@ -27,16 +27,21 @@
 
     <div class="py-16">
         <div class="max-w-7xl mx-auto px-6">
+            @if(empty($cart))
+                <div class="flex flex-col items-center justify-center bg-white p-16 rounded-2xl shadow-sm text-center w-full max-w-2xl mx-auto border border-gray-100">
+                    <svg class="w-24 h-24 text-gray-200 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <h3 class="text-2xl font-black text-gray-900 mb-2 tracking-tighter">Keranjang Belanjamu Kosong</h3>
+                    <p class="text-gray-500 font-medium mb-8">Sepertinya kamu belum menambahkan produk apapun ke dalam keranjang.</p>
+                    <a href="{{ url('/#katalog') }}" class="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-black transition uppercase text-xs tracking-widest inline-flex items-center space-x-2">
+                        <span>Mulai Belanja</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+            @else
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <!-- Cart Items -->
                 <div class="lg:col-span-2">
                     <div class="bg-white p-8">
-                        @if(empty($cart))
-                            <p class="text-center text-gray-500 font-bold py-12">Keranjang belanjamu kosong.</p>
-                            <div class="text-center pb-8">
-                                <a href="{{ url('/#katalog') }}" class="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-black transition uppercase text-xs tracking-widest">Mulai Belanja</a>
-                            </div>
-                        @else
                             <table class="w-full text-left">
                                 <thead>
                                     <tr class="border-b-2 border-gray-100">
@@ -91,12 +96,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                        @endif
                     </div>
                 </div>
 
                 <!-- Order Summary -->
-                @if(!empty($cart))
                 <div class="lg:col-span-1">
                     <div class="p-8">
                         <h3 class="text-3xl font-extrabold text-gray-900 mb-8 tracking-tighter">Total Keranjang Belanja</h3>
@@ -129,8 +132,8 @@
                         </a>
                     </div>
                 </div>
-                @endif
             </div>
+            @endif
         </div>
     </div>
 
