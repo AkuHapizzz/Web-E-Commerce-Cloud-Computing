@@ -16,11 +16,11 @@
                 <div>
                     <h4 class="text-xl font-medium mb-6">Our Social Links:</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-12 h-12 bg-[#3bk rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg text-xs font-bold italic underline">X</a>
-                        <a href="#" class="w-12 h-12 bg-[#bd5998] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg">f</a>
-                        <a href="#" class="w-12 h-12 bg-blac081c] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg italic">P</a>
-                        <a href="#" class="w-12 h-12 bg-[#25d366] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg">WA</a>
-                        <a href="#" class="w-12 h-12 bg-[#0088cc] rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg">TG</a>
+                        <a href="#" class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg text-xs font-bold italic">X</a>
+                        <a href="#" class="w-12 h-12 bg-[#1877F2] text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg font-bold">f</a>
+                        <a href="#" class="w-12 h-12 bg-[#E60023] text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg font-bold italic">P</a>
+                        <a href="#" class="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg font-bold">WA</a>
+                        <a href="#" class="w-12 h-12 bg-[#0088CC] text-white rounded-full flex items-center justify-center hover:scale-110 transition shadow-lg font-bold">TG</a>
                     </div>
                 </div>
 
@@ -36,24 +36,21 @@
             <div class="md:col-span-4 space-y-12">
                 <div>
                     <h4 class="text-xl font-medium mb-6">Payment System:</h4>
-                    <div class="grid grid-cols-4 gap-4 opacity-80">
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
-                        <div class="h-6 bg-gray-400/20 rounded"></div>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="px-4 py-2 bg-white rounded-lg font-bold text-blue-800 text-xs italic tracking-wider shadow-sm">BCA</div>
+                        <div class="px-4 py-2 bg-white rounded-lg font-bold text-yellow-500 text-xs tracking-wider shadow-sm">Mandiri</div>
+                        <div class="px-4 py-2 bg-white rounded-lg font-bold text-orange-600 text-xs tracking-wider shadow-sm">BNI</div>
+                        <div class="px-4 py-2 bg-[#4c3494] rounded-lg font-bold text-white text-xs tracking-wider shadow-sm">OVO</div>
+                        <div class="px-4 py-2 bg-[#00AED6] rounded-lg font-bold text-white text-xs tracking-wider shadow-sm">GoPay</div>
                     </div>
                 </div>
 
                 <div>
                     <h4 class="text-xl font-medium mb-6">Shipping System:</h4>
-                    <div class="flex space-x-6 opacity-80">
-                        <div class="h-8 w-16 bg-gray-400/20 rounded"></div>
-                        <div class="h-8 w-16 bg-gray-400/20 rounded"></div>
-                        <div class="h-8 w-16 bg-gray-400/20 rounded"></div>
+                    <div class="flex flex-wrap gap-3">
+                        <div class="px-4 py-2 bg-red-600 rounded-lg font-bold text-white text-xs tracking-wider italic shadow-sm">J&T</div>
+                        <div class="px-4 py-2 bg-blue-800 rounded-lg font-bold text-white text-xs tracking-wider shadow-sm">JNE</div>
+                        <div class="px-4 py-2 bg-red-500 rounded-lg font-bold text-white text-xs tracking-wider shadow-sm">SiCepat</div>
                     </div>
                 </div>
             </div>

@@ -88,7 +88,7 @@
                         @endif
                     </h2>
                     <div class="flex items-center space-x-6 text-[11px] text-gray-500 font-medium">
-                        <span class="hidden sm:inline">Show: <span class="text-gray-900 font-bold">12</span> / 24 / 36</span>
+                        <!-- Show: 12 / 24 / 36 removed -->
                         <select class="bg-transparent border-none text-[11px] font-bold text-gray-700 cursor-pointer focus:ring-0">
                             <option>Pengurutan standar</option>
                             <option>Harga terendah</option>
@@ -125,7 +125,7 @@
                         
                         <p class="text-sm font-black text-red-600 mb-4">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
                         
-                        <button class="mt-auto w-full {{ $product->stock > 0 ? 'bg-red-600 hover:bg-red-700 text-white' : 'bg-gray-200 text-gray-500 cursor-not-allowed' }} text-[10px] font-bold uppercase tracking-widest py-3 rounded-full transition" {{ $product->stock > 0 ? '' : 'disabled' }}>
+                        <button onclick="window.location.href='{{ route('product.show', $product->slug) }}'" class="mt-auto w-full {{ $product->stock > 0 ? 'bg-red-600 hover:bg-red-700 text-white' : 'bg-gray-200 text-gray-500 cursor-not-allowed' }} text-[10px] font-bold uppercase tracking-widest py-3 rounded-full transition" {{ $product->stock > 0 ? '' : 'disabled' }}>
                             Tambah Ke Keranjang
                         </button>
                     </div>

@@ -19,9 +19,8 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-8">
-            <a href="/" class="hover:text-red-600">HOME</a> <span class="mx-2">/</span> 
-            <a href="#" class="hover:text-red-600">CATEGORIES</a> <span class="mx-2">/</span> 
-            <a href="#" class="hover:text-red-600">{{ $product->category }}</a> <span class="mx-2">/</span> 
+            <a href="{{ route('categories') }}" class="hover:text-red-600">CATEGORIES</a> <span class="mx-2">/</span> 
+            <a href="{{ route('categories', ['category' => $product->category]) }}" class="hover:text-red-600">{{ $product->category }}</a> <span class="mx-2">/</span> 
             <span class="text-gray-900">{{ $product->name }}</span>
         </div>
 
@@ -86,13 +85,47 @@
 
                 <div class="mb-8">
                     <div class="flex space-x-8 border-b border-gray-200 mb-6">
-                        <button class="text-[12px] font-bold text-gray-900 uppercase tracking-widest border-b-2 border-red-600 pb-3">Deskripsi</button>
-                        <button class="text-[12px] font-bold text-gray-400 uppercase tracking-widest hover:text-gray-900 pb-3">Shipping & Delivery</button>
+                        <button id="tab-desc" onclick="switchTab('desc')" class="text-[12px] font-bold text-gray-900 uppercase tracking-widest border-b-2 border-red-600 pb-3 transition-colors">Deskripsi</button>
+                        <button id="tab-ship" onclick="switchTab('ship')" class="text-[12px] font-bold text-gray-400 uppercase tracking-widest hover:text-gray-900 pb-3 transition-colors">Shipping & Delivery</button>
                     </div>
-                    <div class="text-[12px] text-gray-500 leading-loose whitespace-pre-line">
+                    <div id="content-desc" class="text-[12px] text-gray-500 leading-loose whitespace-pre-line">
                         {{ $product->description ?? 'Deskripsi lengkap produk belum ditambahkan oleh Admin.' }}
                     </div>
+                    <div id="content-ship" class="text-[12px] text-gray-500 leading-loose whitespace-pre-line hidden">
+                        <strong>Metode Pengiriman:</strong>
+                        • Ambil di Toko (Bisa langsung diambil di bengkel kami)
+                        • Kirim ke Rumah (Via kurir JNE, J&T, SiCepat, dll)
+                        
+                        Pesanan Anda akan dikemas dengan aman dan rapi sebelum diserahkan kepada pihak ekspedisi.
+                    </div>
                 </div>
+
+                <script>
+                    function switchTab(tab) {
+                        const tabDesc = document.getElementById('tab-desc');
+                        const tabShip = document.getElementById('tab-ship');
+                        const contentDesc = document.getElementById('content-desc');
+                        const contentShip = document.getElementById('content-ship');
+
+                        if(tab === 'desc') {
+                            tabDesc.classList.add('text-gray-900', 'border-b-2', 'border-red-600');
+                            tabDesc.classList.remove('text-gray-400');
+                            tabShip.classList.remove('text-gray-900', 'border-b-2', 'border-red-600');
+                            tabShip.classList.add('text-gray-400');
+                            
+                            contentDesc.classList.remove('hidden');
+                            contentShip.classList.add('hidden');
+                        } else {
+                            tabShip.classList.add('text-gray-900', 'border-b-2', 'border-red-600');
+                            tabShip.classList.remove('text-gray-400');
+                            tabDesc.classList.remove('text-gray-900', 'border-b-2', 'border-red-600');
+                            tabDesc.classList.add('text-gray-400');
+                            
+                            contentShip.classList.remove('hidden');
+                            contentDesc.classList.add('hidden');
+                        }
+                    }
+                </script>
 
                 <form action="{{ route('cart.add', $product->id) }}" method="POST">
                     @csrf

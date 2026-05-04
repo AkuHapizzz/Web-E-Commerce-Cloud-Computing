@@ -99,7 +99,10 @@
                             </div>
                             <div class="flex justify-between text-gray-900 border-t border-gray-200 pt-6">
                                 <span class="text-lg font-extrabold">Shipment</span>
-                                <span class="text-right text-xs font-semibold text-gray-600 leading-relaxed">Ambil di Toko<br>Gojek Bayar Instant<br>Ubah Alamat</span>
+                                <select name="shipment_type" class="text-xs font-bold border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:border-red-600">
+                                    <option value="ambil_di_toko">Ambil di Toko</option>
+                                    <option value="kirim_ke_rumah">Kirim ke Rumah</option>
+                                </select>
                             </div>
                             <div class="flex justify-between items-center text-gray-900 border-t border-gray-200 pt-6">
                                 <span class="text-lg font-extrabold">Total</span>

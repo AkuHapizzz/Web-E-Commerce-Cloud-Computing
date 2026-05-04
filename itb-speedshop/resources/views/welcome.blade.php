@@ -40,7 +40,7 @@
             </div>
             <div class="relative" data-aos="zoom-in" data-aos-delay="200">
                 <div class="absolute inset-0 bg-red-600 rounded-full blur-[120px] opacity-10"></div>
-                <img src="https://www.mydigioto.com/assets/images/slider/banner-1.jpg" class="relative z-10 rounded-3xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700" alt="Hero Banner">
+                <img src="{{ asset('images/hero banner.png') }}" class="relative z-10 rounded-3xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700" alt="Hero Banner">
             </div>
         </div>
     </header>
@@ -51,7 +51,7 @@
                 <h2 class="text-3xl font-extrabold text-gray-900 uppercase italic tracking-tighter">New Arrivals</h2>
                 <div class="h-1.5 w-20 bg-red-600 mt-2"></div>
             </div>
-            <a href="#" class="text-[10px] font-black text-red-600 hover:underline tracking-[0.2em] uppercase">View All Collection</a>
+            <a href="{{ route('categories') }}" class="text-[10px] font-black text-red-600 hover:underline tracking-[0.2em] uppercase">View All Collection</a>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

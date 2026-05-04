@@ -49,13 +49,13 @@
                 <div class="swiper storeSwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide w-[300px] md:w-[600px]">
-                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                            <img src="{{ asset('images/toko 1.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
                         <div class="swiper-slide w-[300px] md:w-[600px]">
-                            <img src="https://images.unsplash.com/photo-1590209633333-e717ee04207f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                            <img src="{{ asset('images/toko 2.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
                         <div class="swiper-slide w-[300px] md:w-[600px]">
-                            <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                            <img src="{{ asset('images/toko 3.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
                         </div>
                 </div>
@@ -80,13 +80,13 @@
                 <div class="swiper workshopSwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide w-[300px] md:w-[600px]">
-                            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                            <img src="{{ asset('images/Bengkel 1.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
                         <div class="swiper-slide w-[300px] md:w-[600px]">
-                            <img src="https://images.unsplash.com/photo-1620050854297-cdd21da6ce95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                            <img src="{{ asset('images/Bengkel 2.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
                         <div class="swiper-slide w-[300px] md:w-[600px]">
-                            <img src="https://images.unsplash.com/photo-1599256621730-535171e28e50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                            <img src="{{ asset('images/Bengkel 3.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
                     </div>
                 </div>
