@@ -20,6 +20,13 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="bg-red-600 text-white px-6 py-4 rounded-xl mb-8 shadow-lg flex justify-between items-center">
+                    <span class="font-bold text-sm uppercase tracking-widest">⛔ {{ session('error') }}</span>
+                    <button onclick="this.parentElement.remove()" class="font-bold">&times;</button>
+                </div>
+            @endif
+
             <div class="bg-white shadow-xl sm:rounded-xl overflow-hidden border border-gray-200">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">

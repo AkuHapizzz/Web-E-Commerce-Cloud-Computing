@@ -31,7 +31,7 @@
                 </h1>
                 <p class="text-gray-500 text-lg mb-10 max-w-md leading-relaxed">Tingkatkan performa berkendara Anda dengan pilihan sparepart mesin dan variasi original hanya di ITB.SpeedShop.</p>
                 <div class="flex space-x-4">
-                    <a href="#katalog" class="bg-gray-900 text-white px-10 py-4 rounded-full font-bold shadow-2xl hover:bg-red-600 transition-all duration-300 transform hover:scale-105 uppercase text-xs tracking-widest">Shop Now</a>
+                    <a href="#katalog" class="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-bold shadow-2xl hover:bg-red-600 transition-all duration-300 transform hover:scale-105 uppercase text-xs tracking-widest">Shop Now</a>
                     <a href="#" class="flex items-center space-x-3 px-6 py-4 font-bold text-gray-700 hover:text-red-600 transition group text-xs tracking-widest">
                         <span>See Video</span>
                         <div class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition">▶</div>
