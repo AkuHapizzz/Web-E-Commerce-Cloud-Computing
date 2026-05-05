@@ -11,14 +11,14 @@ class Product extends Model
 
     // Kolom yang boleh diisi manual
     protected $fillable = [
-    'name', 
-    'slug', 
-    'description', 
-    'price', 
-    'stock', 
-    'category', 
-    'image'
-];
+        'name',
+        'slug',
+        'description',
+        'price',
+        'stock',
+        'category',
+        'image',
+    ];
 
     // Tambahkan method ini di dalam class Product
     public function getCategoryLabelAttribute()
@@ -47,9 +47,9 @@ class Product extends Model
             'Spion' => 'Spion',
             'Handgrip' => 'Handgrip',
             'Jalu Stang' => 'Jalu Stang',
-            'Cover Jok' => 'Cover Jok'
+            'Cover Jok' => 'Cover Jok',
         ];
-        
+
         return $labels[$this->category] ?? $this->category;
     }
 }

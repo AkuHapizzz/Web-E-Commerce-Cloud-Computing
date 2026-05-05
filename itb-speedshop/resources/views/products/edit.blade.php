@@ -42,7 +42,7 @@
                     @if($product->image)
                         <img src="{{ asset('storage/' . $product->image) }}" class="w-20 h-20 object-cover mb-2 rounded">
                     @endif
-                    <input type="file" name="image" class="w-full text-sm">
+                    <input type="file" name="image" accept="image/*" class="w-full text-sm">
                 </div>
 
                 <div class="flex items-center justify-end">

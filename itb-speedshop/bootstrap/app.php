@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\IsCustomer;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,8 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'admin' => \App\Http\Middleware\IsAdmin::class,
-            'customer' => \App\Http\Middleware\IsCustomer::class,
+            'admin' => IsAdmin::class,
+            'customer' => IsCustomer::class,
+        ]);
+        $middleware->validateCsrfTokens(except: [
+            'payments/midtrans-notification',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
