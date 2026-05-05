@@ -57,7 +57,7 @@
                                             @endif
                                         </td>
                                         <td class="px-8 py-5 text-center">
-                                            <button class="text-red-600 font-bold text-sm hover:underline">Detail</button>
+                                            <a href="{{ route('order.show', $order->id) }}" class="text-red-600 font-bold text-sm hover:underline">Detail</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -15,9 +15,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->usertype !== 'admin') {
+        if (! auth()->check() || auth()->user()->usertype !== 'admin') {
             abort(403, 'Unauthorized access.');
         }
+
         return $next($request);
     }
 }

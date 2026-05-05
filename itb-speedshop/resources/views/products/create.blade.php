@@ -54,7 +54,7 @@
 
                     <div class="border-2 border-dashed border-gray-300 rounded-2xl p-6 text-center bg-gray-50 hover:bg-red-50 hover:border-red-300 transition cursor-pointer">
                         <label class="block text-xs font-bold text-gray-700 uppercase tracking-widest mb-2 cursor-pointer">Upload Foto Produk</label>
-                        <input type="file" name="image" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-red-50 file:text-red-700 hover:file:bg-red-100">
+                        <input type="file" name="image" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-red-50 file:text-red-700 hover:file:bg-red-100">
                     </div>
 
                     <div class="flex justify-end pt-4">

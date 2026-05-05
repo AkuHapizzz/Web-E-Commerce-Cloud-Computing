@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,9 +20,9 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-{
-    Gate::define('admin', function (User $user) {
-        return $user->email === 'akuhapizz@gmail.com'; // Ganti dengan email yang kamu daftarkan tadi
-    });
-}
+    {
+        Gate::define('admin', function (User $user) {
+            return $user->email === 'akuhapizz@gmail.com'; // Ganti dengan email yang kamu daftarkan tadi
+        });
+    }
 }

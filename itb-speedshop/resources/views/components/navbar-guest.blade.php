@@ -12,10 +12,10 @@
             </div>
 
             <div class="hidden md:flex space-x-10">
-                <a href="{{ url('/') }}" class="text-[11px] font-bold text-gray-500 hover:text-red-600 uppercase tracking-widest transition">Home</a>
-                <a href="{{ route('categories') }}" class="text-[11px] font-bold text-gray-500 hover:text-red-600 uppercase tracking-widest transition">Categories</a>
-                <a href="{{ route('workshop') }}" class="text-[11px] font-bold text-gray-500 hover:text-red-600 uppercase tracking-widest transition">Workshop</a>
-                <a href="{{ route('contact') }}" class="text-[11px] font-bold text-gray-500 hover:text-red-600 uppercase tracking-widest transition">Contact Us</a>
+                <a href="{{ url('/') }}" class="text-[11px] font-bold uppercase tracking-widest transition {{ request()->is('/') ? 'text-red-600 border-b-2 border-red-600 pb-1' : 'text-gray-500 hover:text-red-600' }}">Home</a>
+                <a href="{{ route('categories') }}" class="text-[11px] font-bold uppercase tracking-widest transition {{ request()->routeIs('categories') ? 'text-red-600 border-b-2 border-red-600 pb-1' : 'text-gray-500 hover:text-red-600' }}">Categories</a>
+                <a href="{{ route('workshop') }}" class="text-[11px] font-bold uppercase tracking-widest transition {{ request()->routeIs('workshop') ? 'text-red-600 border-b-2 border-red-600 pb-1' : 'text-gray-500 hover:text-red-600' }}">Workshop</a>
+                <a href="{{ route('contact') }}" class="text-[11px] font-bold uppercase tracking-widest transition {{ request()->routeIs('contact') ? 'text-red-600 border-b-2 border-red-600 pb-1' : 'text-gray-500 hover:text-red-600' }}">Contact Us</a>
             </div>
 
             <div class="flex items-center space-x-6 text-gray-600">
@@ -30,10 +30,19 @@
                 @auth
                 {{-- Authenticated: Profile dropdown --}}
                 <div class="relative" id="profile-dropdown" x-data="{ open: false }" @click.outside="open = false">
-                    <button @click="open = !open" class="flex items-center space-x-2 hover:text-red-600 transition focus:outline-none">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                        <span class="text-[11px] font-bold uppercase tracking-widest hidden md:inline">{{ Auth::user()->name }}</span>
-                        <svg class="w-3 h-3 hidden md:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <button @click="open = !open" class="flex items-center space-x-3 hover:text-red-600 transition focus:outline-none group">
+                        @if(Auth::user()->profile_photo)
+                            <img src="{{ asset('storage/' . Auth::user()->profile_photo) }}" class="w-8 h-8 rounded-xl object-cover shadow-sm border border-gray-200 group-hover:border-red-600 transition-colors">
+                        @else
+                            <div class="w-8 h-8 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 font-black text-xs border border-gray-200 group-hover:bg-red-600 group-hover:text-white transition-all">
+                                {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                            </div>
+                        @endif
+                        <div class="hidden md:block text-left leading-tight max-w-[120px]">
+                            <span class="text-[10px] font-black uppercase tracking-widest block truncate">{{ Str::limit(Auth::user()->name, 12) }}</span>
+                            <span class="text-[8px] text-gray-400 uppercase tracking-widest font-bold">{{ Auth::user()->usertype }}</span>
+                        </div>
+                        <svg class="w-3 h-3 hidden md:block opacity-40 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
 
                     <div x-show="open"
@@ -54,7 +63,13 @@
 
                         <div class="py-1">
                             <a href="{{ route('profile.edit') }}" class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition">
-                                <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                @if(Auth::user()->profile_photo)
+                                    <img src="{{ asset('storage/' . Auth::user()->profile_photo) }}" class="w-5 h-5 mr-3 rounded-lg object-cover">
+                                @else
+                                    <div class="w-5 h-5 mr-3 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 font-black text-[10px]">
+                                        {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                                    </div>
+                                @endif
                                 View Profile
                             </a>
                             <a href="{{ route('dashboard') }}" class="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 transition">

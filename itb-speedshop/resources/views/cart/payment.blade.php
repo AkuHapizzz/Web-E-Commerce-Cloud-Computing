@@ -49,7 +49,9 @@
     <!-- Gunakan Sandbox JS Midtrans sesuai standard integrasi. Saat diganti production rubah URL nya -->
     <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ env('MIDTRANS_CLIENT_KEY', 'SB-Mid-client-YOUR_CLIENT_KEY') }}"></script>
     <script type="text/javascript">
-      document.getElementById('pay-button').onclick = function(){
+      var payButton = document.getElementById('pay-button');
+      
+      payButton.onclick = function(){
         @if($snapToken)
             // SnapToken Acquired from Controller
             snap.pay('{{ $snapToken }}', {
@@ -58,15 +60,25 @@
                 window.location.href = "{{ route('checkout.success', $order->id) }}";
               },
               onPending: function(result){
-                alert("Menunggu pembayaran diproses.");
+                window.location.href = "{{ route('dashboard') }}";
               },
               onError: function(result){
                 alert("Pembayaran gagal!");
+                window.location.href = "{{ route('dashboard') }}";
+              },
+              onClose: function(){
+                // user closed the popup without finishing payment
+                alert("Anda menutup jendela pembayaran sebelum menyelesaikannya.");
               }
             });
         @else
             alert("Terjadi kesalahan, Snap Token gagal dibuat. Pastikan Key Midtrans dimasukkan di konfigurasi sistem.");
         @endif
+      };
+
+      // Auto-open Snap on page load
+      window.onload = function() {
+          payButton.click();
       };
     </script>
 </body>
