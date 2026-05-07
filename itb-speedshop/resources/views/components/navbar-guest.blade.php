@@ -6,9 +6,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
             <div class="flex-shrink-0 flex items-center">
-                <a href="/" class="text-2xl font-black italic tracking-tighter text-gray-900">
+                <h1 class="text-2xl font-bold tracking-tighter text-black text-gray-900">
                     ITB<span class="text-red-600">.SpeedShop</span>
-                </a>
+                </h1>
             </div>
 
             <div class="hidden md:flex space-x-10">

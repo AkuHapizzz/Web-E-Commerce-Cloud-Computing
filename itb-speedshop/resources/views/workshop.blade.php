@@ -57,7 +57,17 @@
                         <div class="swiper-slide w-[300px] md:w-[600px]">
                             <img src="{{ asset('images/toko 3.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
+                        <!-- Duplicated slides to ensure smooth infinite loop -->
+                        <div class="swiper-slide w-[300px] md:w-[600px]">
+                            <img src="{{ asset('images/toko 1.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
+                        <div class="swiper-slide w-[300px] md:w-[600px]">
+                            <img src="{{ asset('images/toko 2.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                        </div>
+                        <div class="swiper-slide w-[300px] md:w-[600px]">
+                            <img src="{{ asset('images/toko 3.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                        </div>
+                    </div>
                 </div>
                 <div class="swiper-button-prev store-prev"></div>
                 <div class="swiper-button-next store-next"></div>
@@ -79,6 +89,16 @@
             <div class="relative max-w-6xl mx-auto px-12 lg:px-24">
                 <div class="swiper workshopSwiper">
                     <div class="swiper-wrapper">
+                        <div class="swiper-slide w-[300px] md:w-[600px]">
+                            <img src="{{ asset('images/Bengkel 1.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                        </div>
+                        <div class="swiper-slide w-[300px] md:w-[600px]">
+                            <img src="{{ asset('images/Bengkel 2.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                        </div>
+                        <div class="swiper-slide w-[300px] md:w-[600px]">
+                            <img src="{{ asset('images/Bengkel 3.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
+                        </div>
+                        <!-- Duplicated slides to ensure smooth infinite loop -->
                         <div class="swiper-slide w-[300px] md:w-[600px]">
                             <img src="{{ asset('images/Bengkel 1.jpg.jpeg') }}" class="w-full h-[250px] md:h-[400px] object-cover rounded-2xl shadow-2xl">
                         </div>
