@@ -4,9 +4,14 @@
             <h2 class="font-bold text-2xl text-gray-800 leading-tight">
                 {{ __('Inventory Management') }} <span class="text-red-600">ITB.SpeedShop</span>
             </h2>
-            <a href="{{ route('products.create') }}" class="inline-flex items-center px-6 py-3 bg-red-600 border border-transparent rounded-xl font-bold text-xs text-white uppercase tracking-widest hover:bg-black transition-all shadow-lg shadow-red-100">
-                + Tambah Produk Baru
-            </a>
+            <div class="flex gap-4">
+                <a href="{{ route('admin.orders.index') }}" class="inline-flex items-center px-6 py-3 bg-gray-800 border border-transparent rounded-xl font-bold text-xs text-white uppercase tracking-widest hover:bg-black transition-all shadow-lg">
+                    Manajemen Pesanan
+                </a>
+                <a href="{{ route('products.create') }}" class="inline-flex items-center px-6 py-3 bg-red-600 border border-transparent rounded-xl font-bold text-xs text-white uppercase tracking-widest hover:bg-black transition-all shadow-lg shadow-red-100">
+                    + Tambah Produk Baru
+                </a>
+            </div>
         </div>
     </x-slot>
 
@@ -26,6 +31,49 @@
                     <button onclick="this.parentElement.remove()" class="font-bold">&times;</button>
                 </div>
             @endif
+
+            <!-- Stock Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Total Produk -->
+                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Total Produk</p>
+                            <h3 class="text-3xl font-black text-gray-900 mt-1">{{ $products->count() }}</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-xl">
+                            📦
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stok Menipis -->
+                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-bold text-yellow-600 uppercase tracking-widest">Stok Menipis</p>
+                            <h3 class="text-3xl font-black text-yellow-600 mt-1">{{ $products->where('stock', '<=', 5)->where('stock', '>', 0)->count() }}</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-50 rounded-full flex items-center justify-center text-xl">
+                            ⚠️
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">* Stok <= 5</p>
+                </div>
+
+                <!-- Stok Habis -->
+                <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-bold text-red-600 uppercase tracking-widest">Stok Habis</p>
+                            <h3 class="text-3xl font-black text-red-600 mt-1">{{ $products->where('stock', 0)->count() }}</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-xl">
+                            ❌
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="bg-white shadow-xl sm:rounded-xl overflow-hidden border border-gray-200">
                 <div class="overflow-x-auto">

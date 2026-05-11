@@ -146,6 +146,7 @@ class CartController extends Controller
 
             return view('cart.payment', compact('snapToken', 'order'));
         } catch (\Exception $e) {
+            \Log::error('Midtrans Payment Error: ' . $e->getMessage());
             return redirect()->route('dashboard')->with('error', 'Gagal memproses pembayaran. Periksa konfigurasi Midtrans.');
         }
     }

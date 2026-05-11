@@ -24,7 +24,13 @@
                         @if($order->status == 'pending')
                             <span class="px-6 py-2 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold uppercase tracking-widest border border-yellow-200 shadow-sm">Pending</span>
                         @elseif($order->status == 'paid')
-                            <span class="px-6 py-2 bg-green-100 text-green-800 rounded-full text-xs font-bold uppercase tracking-widest border border-green-200 shadow-sm">Paid</span>
+                            <span class="px-6 py-2 bg-blue-100 text-blue-800 rounded-full text-xs font-bold uppercase tracking-widest border border-blue-200 shadow-sm">Paid</span>
+                        @elseif($order->status == 'diproses')
+                            <span class="px-6 py-2 bg-orange-100 text-orange-800 rounded-full text-xs font-bold uppercase tracking-widest border border-orange-200 shadow-sm">Diproses</span>
+                        @elseif($order->status == 'dikirim')
+                            <span class="px-6 py-2 bg-indigo-100 text-indigo-800 rounded-full text-xs font-bold uppercase tracking-widest border border-indigo-200 shadow-sm">Dikirim</span>
+                        @elseif($order->status == 'selesai')
+                            <span class="px-6 py-2 bg-green-100 text-green-800 rounded-full text-xs font-bold uppercase tracking-widest border border-green-200 shadow-sm">Selesai</span>
                         @elseif($order->status == 'failed' || $order->status == 'expired' || $order->status == 'cancelled')
                             <span class="px-6 py-2 bg-red-100 text-red-800 rounded-full text-xs font-bold uppercase tracking-widest border border-red-200 shadow-sm">{{ ucfirst($order->status) }}</span>
                         @else
