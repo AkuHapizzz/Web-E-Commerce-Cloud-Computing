@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -27,7 +28,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ImageService $imageService)
     {
         // 1. Validasi Input (Tambahkan image)
         $request->validate([
@@ -36,7 +37,7 @@ class ProductController extends Controller
             'description' => 'nullable',
             'stock' => 'required|integer',
             'category' => 'required',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Batas 2MB
+            'image' => 'nullable|image|mimes:jpg,png,webp,webp|max:2048', // Batas 2MB
         ]);
 
         // 2. Simpan data teks dulu ke variabel $product
@@ -52,7 +53,7 @@ class ProductController extends Controller
         // 3. LOGIKA UPLOAD GAMBAR (Taruh di sini)
         if ($request->hasFile('image')) {
             // Simpan file ke folder storage/app/public/products
-            $path = $request->file('image')->store('products', 'public');
+            $path = $imageService->uploadAndConvert($request->file('image'), 'products');
 
             // Update kolom image di database dengan path filenya
             $product->image = $path;
@@ -84,7 +85,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Product $product, ImageService $imageService)
     {
         $request->validate([
             'name' => 'required',
@@ -98,7 +99,14 @@ class ProductController extends Controller
 
         // Jika ada upload foto baru
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('products', 'public');
+            // Hapus foto lama jika ada
+            if ($product->image) {
+                $imageService->deleteIfExists($product->image);
+            }
+            $data['image'] = $imageService->uploadAndConvert($request->file('image'), 'products');
+        }
+        if ($request->hasFile('image')) {
+            $data['image'] = $imageService->uploadAndConvert($request->file('image'), 'products');
         }
 
         $product->update($data);

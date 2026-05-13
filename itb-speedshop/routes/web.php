@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\PaymentCallbackController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -16,9 +17,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     if (auth()->user()->usertype === 'admin') {
-        $products = Product::all();
-
-        return view('admin.dashboard', compact('products'));
+        return app(DashboardController::class)->index(request());
     }
 
     // For regular users, load their order history
@@ -60,9 +59,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
         Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
 
-        // Order Management Routes
+        // Order Management Routes (Main)
         Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
         Route::put('/orders/{order}/status', [AdminOrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+
+        // Order Management Route (Stash / Dashboard Tab)
+        Route::patch('/dashboard/orders/{order}/status', [DashboardController::class, 'updateOrderStatus'])->name('admin.orders.update-status');
     });
 });
 
