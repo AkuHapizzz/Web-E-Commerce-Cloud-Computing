@@ -133,7 +133,7 @@
             <div class="h-1.5 w-20 bg-red-600 mt-4"></div>
         </div>
         <div class="flex justify-center items-center" data-aos="fade-up" data-aos-delay="200">
-            <img src="{{ asset('images/foto brand.png') }}" alt="Our Partners" class="w-full h-auto object-contain">
+            <img src="{{ asset('images/foto brand.webp') }}" alt="Our Partners" class="w-full h-auto object-contain">
         </div>
     </section>
 
