@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Services\ImageService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +25,7 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request, ImageService $imageService): RedirectResponse
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
         $user->fill($request->validated());
@@ -35,14 +34,16 @@ class ProfileController extends Controller
             if ($user->profile_photo) {
                 Storage::disk('public')->delete($user->profile_photo);
             }
-            $user->profile_photo = $imageService->uploadAndConvert($request->file('profile_photo'), 'profile_photos');
+            $path = $request->file('profile_photo')->store('profile_photos', 'public');
+            $user->profile_photo = $path;
         }
 
         if ($request->hasFile('profile_banner')) {
             if ($user->profile_banner) {
                 Storage::disk('public')->delete($user->profile_banner);
             }
-            $user->profile_banner = $imageService->uploadAndConvert($request->file('profile_banner'), 'profile_banners');
+            $path = $request->file('profile_banner')->store('profile_banners', 'public');
+            $user->profile_banner = $path;
         }
 
         if ($user->isDirty('email')) {

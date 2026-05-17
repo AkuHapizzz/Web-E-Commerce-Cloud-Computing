@@ -153,7 +153,17 @@ class CartController extends Controller
 
     public function success(Order $order)
     {
-        $order->update(['status' => 'paid']);
+        if ($order->status !== 'paid') {
+            $order->update(['status' => 'paid']);
+
+            // Kurangi stok produk
+            foreach ($order->items as $item) {
+                $product = \App\Models\Product::find($item->product_id);
+                if ($product) {
+                    $product->decrement('stock', $item->quantity);
+                }
+            }
+        }
 
         return view('cart.success', compact('order'));
     }

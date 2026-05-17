@@ -29,10 +29,26 @@ class PaymentCallbackController extends Controller
             if ($fraudStatus == 'challenge') {
                 $order->update(['status' => 'pending']);
             } else {
-                $order->update(['status' => 'paid']);
+                if ($order->status !== 'paid') {
+                    $order->update(['status' => 'paid']);
+                    foreach ($order->items as $item) {
+                        $product = \App\Models\Product::find($item->product_id);
+                        if ($product) {
+                            $product->decrement('stock', $item->quantity);
+                        }
+                    }
+                }
             }
         } elseif ($transactionStatus == 'settlement') {
-            $order->update(['status' => 'paid']);
+            if ($order->status !== 'paid') {
+                $order->update(['status' => 'paid']);
+                foreach ($order->items as $item) {
+                    $product = \App\Models\Product::find($item->product_id);
+                    if ($product) {
+                        $product->decrement('stock', $item->quantity);
+                    }
+                }
+            }
         } elseif ($transactionStatus == 'deny') {
             $order->update(['status' => 'failed']);
         } elseif ($transactionStatus == 'expire') {
